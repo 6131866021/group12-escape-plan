@@ -246,7 +246,7 @@ class GameClient {
       gameClient.currentBlock = document.querySelector(
         "." + gameClient.currentPos
       );
-      var color=2;
+      var color=1;
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
