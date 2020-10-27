@@ -42,7 +42,7 @@ class GameClient {
     this.designBtn = document.querySelector(".designNow");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
-    this.color=0;
+    this.color=1;
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
