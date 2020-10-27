@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rationale&display=swap"
+      rel="stylesheet"
+    />
+    <title>Escape Plan</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <section class="login">
+      <div id="stars2"></div>
+      <img id="rocket" src="./img/startup 1.svg" alt="" />
+      <h1>Welcome To Escape Plan</h1>
+      <form class="displayNameForm">
+        <p class="nameWarning">This name is not available !</p>
+        <div>
+          <label for="displayName">Enter your display name :</label>
+          <input
+            type="text"
+            name="displayName"
+            class="displayName"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <button type="submit">Proceed!</button>
+      </form>
+    </section>
+    <section class="gameInstructions">
+      <div id="stars2"></div>
+      <img id="rocket2" src="./img/startup 1.svg" alt="" />
+      <h2>Game Instructions</h2>
+      <div class="instructions">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, modi.
+        </p>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, vel
+          quasi veniam quidem sit reprehenderit!
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      </div>
+    </section>
+    <section class="roomCreation">
+      <form class="joinGame">
+        <p class="roomWarning">
+          This game has already started / This Channel is full
+        </p>
+        <div>
+          <label for="gameCode"> Enter Game Code :</label>
+          <input type="text" required autocomplete="off" />
+        </div>
+        <button type="submit">Join Game</button>
+      </form>
+    </section>
+    <section class="waitingRoom">
+      <div class="userList">
+        <p>Users in this room</p>
+        <ul class="users"></ul>
+        <button class="playNow">Play Now!</button>
+      </div>
+    </section>
+    <!-- <section class="character">
+      <div>
+        <img src="img/alien.svg"><img src="img/astro.svg"><input type="radio" id="white" name="color" value="white">
+        <img src="img/alien2.svg"><img src="img/astro2.svg"><input type="radio" id="green" name="color" value="green">
+        <img src="img/alien3.svg"><img src="img/astro3.svg"><input type="radio" id="blue" name="color" value="blue">
+        <button class="playNow">Play Now!</button>
+      </div>
+    </section> -->
+    <section class="gamePage">
+      <div class="gridContainer">
+        <div class="x1y1 box"></div>
+        <div class="x1y2 box"></div>
+        <div class="x1y3 box"></div>
+        <div class="x1y4 box"></div>
+        <div class="x1y5 box"></div>
+
+        <div class="x2y1 box"></div>
+        <div class="x2y2 box"></div>
+        <div class="x2y3 box"></div>
+        <div class="x2y4 box"></div>
+        <div class="x2y5 box"></div>
+
+        <div class="x3y1 box"></div>
+        <div class="x3y2 box"></div>
+        <div class="x3y3 box"></div>
+        <div class="x3y4 box"></div>
+        <div class="x3y5 box"></div>
+
+        <div class="x4y1 box"></div>
+        <div class="x4y2 box"></div>
+        <div class="x4y3 box"></div>
+        <div class="x4y4 box"></div>
+        <div class="x4y5 box"></div>
+
+        <div class="x5y1 box"></div>
+        <div class="x5y2 box"></div>
+        <div class="x5y3 box"></div>
+        <div class="x5y4 box"></div>
+        <div class="x5y5 box"></div>
+      </div>
+
+      <div class="scores">
+        <ul class="userScores"></ul>
+      </div>
+      <h1 class="timer">10</h1>
+      <div class="controls">
+        <h2 class="playerType"></h2>
+        <img src="./img/up.png" class="moveUp" alt="" />
+        <div class="low">
+          <img src="./img/left.png" class="moveLeft" alt="" />
+          <img src="./img/down.png" class="moveDown" alt="" />
+          <img src="./img/right.png" class="moveRight" alt="" />
+        </div>
+      </div>
+      <div class="gameOver">
+        <button class="endGame">Quit!</button>
+        <button class="nextRound">Next Round!</button>
+      </div>
+    </section>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
+      integrity="sha512-IQLehpLoVS4fNzl7IfH8Iowfm5+RiMGtHykgZJl9AWMgqx0AmJ6cRWcB+GaGVtIsnC4voMfm8f2vwtY+6oPjpQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
