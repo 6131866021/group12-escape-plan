@@ -228,7 +228,7 @@ class GameClient {
           let id = "Pos" + key;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
-          var color=2;
+          color=2;
           if (gameData.users[gameData.warderIndex] == key) {
             if (color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
@@ -247,7 +247,7 @@ class GameClient {
       gameClient.currentBlock = document.querySelector(
         "." + gameClient.currentPos
       );
-      var color=2;
+      color=2;
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
