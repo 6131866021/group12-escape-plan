@@ -39,7 +39,6 @@ class GameClient {
     //Waiting Page
     this.waitingSection = document.querySelector(".waitingRoom");
     this.userList = document.querySelector(".users");
-    this.designBtn = document.querySelector(".designNow");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
     this.playBtn = document.querySelector(".playNow");
@@ -240,7 +239,7 @@ class GameClient {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
-            }
+            }}
         }
       });
       gameClient.gameState = gameData;
