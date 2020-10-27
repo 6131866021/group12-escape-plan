@@ -42,6 +42,7 @@ class GameClient {
     this.designBtn = document.querySelector(".designNow");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
+    var color=2;
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
@@ -286,8 +287,7 @@ class GameClient {
         );
         obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
       }
-      Object.keys(gameData.playerPos).forEach(function (key) {
-        var color = 2;
+      Object.keys(gameData.playerPos).forEach(function (key) {\
         if (key == gameClient.displayName) {
           gameClient.currentPos = gameData.playerPos[key];
         } else {
