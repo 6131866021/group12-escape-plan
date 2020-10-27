@@ -304,9 +304,9 @@ class GameClient {
           otherPlayerBlock.id = id;
           let color=2;
           if (gameData.users[gameData.warderIndex] == key) {
-            otherPlayerBlock.innerHTML = '<img src="./img/alien' + color + '".svg" />';
+            otherPlayerBlock.innerHTML = '<img src="./img/alien"' + color + '".svg" />';
           } else {
-              otherPlayerBlock.innerHTML = '<img src="./img/astro' + color + '".svg" />';
+              otherPlayerBlock.innerHTML = '<img src="./img/astro"' + color + '".svg" />';
           }
         }
       });
@@ -317,9 +317,10 @@ class GameClient {
       gameClient.currentBlock.classList.add("currentBlock");
       let color=2;
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
-          gameClient.currentBlock.innerHTML = '<img src="./img/alien' + color + '".svg" />';
+
+          gameClient.currentBlock.innerHTML = '<img src="./img/alien"' + color + '".svg" />';
       } else {
-          gameClient.currentBlock.innerHTML = '<img src="./img/astro' + color + '".svg" />';
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro"' + color + '".svg" />';
       }
     });
 
