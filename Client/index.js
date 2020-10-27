@@ -323,6 +323,7 @@ class GameClient {
         "." + gameClient.currentPos
       );
       gameClient.currentBlock.classList.add("currentBlock");
+      let color=2;
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         if (color == 1) {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
