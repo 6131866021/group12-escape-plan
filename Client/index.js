@@ -229,9 +229,9 @@ class GameClient {
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
           if (gameData.users[gameData.warderIndex] == key) {
-            otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
+            otherPlayerBlock.innerHTML = '<img src="./img/alien"' + '"2"' + '".svg" />';
           } else {
-            otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
+            otherPlayerBlock.innerHTML = '<img src="./img/astro"' + '"3"' + '".svg" />';
           }
         }
       });
@@ -242,10 +242,10 @@ class GameClient {
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
-        gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
+        gameClient.currentBlock.innerHTML = '<img src="./img/alien"' + '"2"' + '".svg" />';
       } else {
         this.playerChar.innerText = "You are the Astronaut";
-        gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
+        gameClient.currentBlock.innerHTML = '<img src="./img/astro"' + '"3"' + '".svg" />';
       }
 
       console.log(gameClient.gameState);
