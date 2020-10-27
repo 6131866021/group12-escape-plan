@@ -286,7 +286,7 @@ class GameClient {
         );
         obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
       }
-      Object.keys(gameData.playerPos).forEach(function (key) {\
+      Object.keys(gameData.playerPos).forEach(function (key) {
         if (key == gameClient.displayName) {
           gameClient.currentPos = gameData.playerPos[key];
         } else {
