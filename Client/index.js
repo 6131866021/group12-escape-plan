@@ -42,7 +42,7 @@ class GameClient {
     this.designBtn = document.querySelector(".designNow");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
-    this.color=0;
+    let color = 2;
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
@@ -304,18 +304,14 @@ class GameClient {
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
           if (gameData.users[gameData.warderIndex] == key) {
-            if (this.color == 0) {
+            if (this.color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
-            } else if (this.color == 1) {
-              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
           } else {
-            if (this.color == 0) {
+            if (this.color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
-            } else if (this.color == 1) {
-              otherPlayerBlock.innerHTML = '<img src="./img/astro2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
             }
@@ -328,13 +324,13 @@ class GameClient {
       );
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
-        if (this.color == 0) {
+        if (this.color == 1) {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
         }
       } else {
-        if (this.color == 0) {
+        if (this.color == 1) {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
