@@ -302,14 +302,15 @@ class GameClient {
           let id = "Pos" + key;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
+          color=2;
           if (gameData.users[gameData.warderIndex] == key) {
-            if (parseInt(this.displayNameInput.value) == 1) {
+            if (this.color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
           } else {
-            if (parseInt(this.displayNameInput.value) == 1) {
+            if (this.color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
@@ -323,13 +324,13 @@ class GameClient {
       );
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
-        if (parseInt(this.displayNameInput.value) == 1) {
+        if (this.color == 1) {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
         }
       } else {
-        if (parseInt(this.displayNameInput.value) == 1) {
+        if (this.color == 1) {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
