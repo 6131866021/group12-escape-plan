@@ -330,16 +330,12 @@ class GameClient {
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         if (this.color == 0) {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
-        } else if (this.color == 1) {
-          gameClient.currentBlock.innerHTML = '<img src="./img/alien2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
         }
       } else {
         if (this.color == 0) {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
-        } else if (this.color == 1) {
-          gameClient.currentBlock.innerHTML = '<img src="./img/astro2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
         }
