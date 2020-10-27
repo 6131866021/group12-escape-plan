@@ -22,6 +22,8 @@ welcomeTl.fromTo(
   { opacity: 1, scale: 1 }
 );
 
+var color=2;
+
 class GameClient {
   constructor() {
     //Game Client Variables
@@ -42,7 +44,6 @@ class GameClient {
     this.designBtn = document.querySelector(".designNow");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
-    var color=2;
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
