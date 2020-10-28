@@ -71,9 +71,6 @@ class GameClient {
       socket.emit("checkRoomStatus", this.gameCodeInput.value);
     });
 
-    this.designBtn.addEventListener("click")
-    var color = document.getElementsByName(color); 
-
     this.playBtn.addEventListener("click", (event) => {
       if (this.userList.childElementCount == 1) {
         window.alert("Go find a friend, Loser!");
