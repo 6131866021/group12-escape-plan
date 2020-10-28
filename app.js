@@ -170,7 +170,6 @@ io.sockets.on("connection", (socket) => {
 
   socket.on("designRoom", (data) => {
     console.log("Color has been chosen!");
-    socket.emit("designRoom", avail);
   })
   
   socket.on("startGame", async (data) => {
