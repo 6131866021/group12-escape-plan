@@ -41,6 +41,7 @@ class GameClient {
     this.userList = document.querySelector(".users");
     this.nextRoundBtn = document.querySelector(".gameOver");
     //Character Design
+    this.designBtn = document.querySelector(".next");
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
@@ -69,6 +70,9 @@ class GameClient {
       this.gameCodeInput = this.joingameForm.querySelector("input");
       socket.emit("checkRoomStatus", this.gameCodeInput.value);
     });
+
+    this.designBtn.addEventListener("click")
+    var color = document.getElementsByName(color); 
 
     this.playBtn.addEventListener("click", (event) => {
       if (this.userList.childElementCount == 1) {
@@ -318,9 +322,8 @@ class GameClient {
           let id = "Pos" + key;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
-          let color=2;
           if (gameData.users[gameData.warderIndex] == key) {
-            if (color == 1) {
+            if (color == "red") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
