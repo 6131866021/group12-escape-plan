@@ -167,10 +167,6 @@ io.sockets.on("connection", (socket) => {
     }
     socket.emit("checkRoomStatus", avail);
   });
-
-  socket.on("designRoom", (data) => {
-    console.log("Color has been chosen!");
-  })
   
   socket.on("startGame", async (data) => {
     console.log("Room " + data + " has started the game!");

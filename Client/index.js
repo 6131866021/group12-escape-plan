@@ -320,7 +320,7 @@ class GameClient {
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
           if (gameData.users[gameData.warderIndex] == key) {
-            if (color == "red") {
+            if (color == 1) {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
