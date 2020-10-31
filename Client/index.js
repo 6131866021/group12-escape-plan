@@ -211,7 +211,6 @@ class GameClient {
         obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
       }
       Object.keys(gameData.playerPos).forEach(function (key) {
-        var photo = document.getElementById('photo').value;
         if (key == gameClient.displayName) {
           gameClient.currentPos = gameData.playerPos[key];
         } else {
@@ -225,6 +224,7 @@ class GameClient {
             existingSprite.id = undefined;
           }
           let id = "Pos" + key;
+          var photo = document.getElementById('photo').value;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
           if (gameData.users[gameData.warderIndex] == key) {
