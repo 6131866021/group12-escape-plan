@@ -311,6 +311,12 @@ input:focus {
   font-size: 2rem;
 }
 
+.waitingRoom option {
+  border: 2rem solid black;  
+  align-items: center;
+  background-color: white;
+}
+
 .gamePage {
   min-height: 100vh;
   display: none;

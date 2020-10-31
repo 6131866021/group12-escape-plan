@@ -61,12 +61,14 @@
       <div class="userList">
         <p>Users in this room</p>
         <ul class="users"></ul>
-        <form class="colorList">
-          <div class="colorList">Select a color of your character<br>
-            <input type="radio" name="color" id="red" value="red"><label for="red"></label>Red<br>
-            <input type="radio" name="color" id="white" value="white"><label for="white"></label>White<br>
-            <input type="radio" name="color" id="green" value="green"><label for="green"></label>Green<br>
-          </div>
+        <div class="option">
+          <label for="photo">Choose Color</label>
+          <select id="photo">
+            <option value="red">Red</option>
+            <option value="white">White</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
         </form>
         <button class="next">Press to continue</button>
       </div>

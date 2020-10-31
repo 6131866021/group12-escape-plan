@@ -213,6 +213,7 @@ class GameClient {
         obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
       }
       Object.keys(gameData.playerPos).forEach(function (key) {
+        var photo = document.getElementById('photo').value;
         if (key == gameClient.displayName) {
           gameClient.currentPos = gameData.playerPos[key];
         } else {
@@ -228,15 +229,14 @@ class GameClient {
           let id = "Pos" + key;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
-          var color=2;
           if (gameData.users[gameData.warderIndex] == key) {
-            if (color == 1) {
+            if (photo == "red") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
           } else {
-            if (color == 1) {
+            if (photo == "red") {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
@@ -247,18 +247,18 @@ class GameClient {
       gameClient.currentBlock = document.querySelector(
         "." + gameClient.currentPos
       );
-      var color=1;
+      var photo = document.getElementById('photo').value;
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
-        if (color == 1) {
+        if (photo == "red") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
         }
       } else {
         this.playerChar.innerText = "You are the Astronaut";
-        if (color == 1) {
+        if (photo == "red") {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
