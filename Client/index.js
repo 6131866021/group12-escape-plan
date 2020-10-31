@@ -224,7 +224,9 @@ class GameClient {
             existingSprite.id = undefined;
           }
           let id = "Pos" + key;
+          // color select
           var photo = document.getElementById('photo').value;
+          console.log(document.getElementById('photo').value);
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
           if (gameData.users[gameData.warderIndex] == key) {
@@ -246,6 +248,7 @@ class GameClient {
         "." + gameClient.currentPos
       );
       var photo = document.getElementById('photo').value;
+      console.log(document.getElementById('photo').value);
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
