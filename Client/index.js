@@ -252,7 +252,7 @@ class GameClient {
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
-        if (photo == "red") {
+        if (photo == "green") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
