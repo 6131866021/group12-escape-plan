@@ -40,8 +40,6 @@ class GameClient {
     this.waitingSection = document.querySelector(".waitingRoom");
     this.userList = document.querySelector(".users");
     this.nextRoundBtn = document.querySelector(".gameOver");
-    //Character Design
-    this.designBtn = document.querySelector(".next");
     this.playBtn = document.querySelector(".playNow");
     //Game Page
     this.gameSection = document.querySelector(".gamePage");
