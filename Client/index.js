@@ -74,12 +74,11 @@ class GameClient {
 
     //RandomGame
     this.randomForm.addEventListener("submit", (event) => {
-      event.preventDefault();
       socket.emit("randomRoomStatus", Math.random());
     });
 
     //Value of Random Number
-    socket.on("randomRoomStatus", (data) => {
+    socket.on("randomRoom", (data) => {
       console.log(data);
       socket.emit("checkRoomStatus", data);
     });
