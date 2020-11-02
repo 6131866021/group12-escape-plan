@@ -189,7 +189,8 @@ io.sockets.on("connection", (socket) => {
         arr.push(i);
       }
     }
-    let value = Math.floor(data*arr.length)-1;
+    let value = Math.floor(data*(arr.length+1))-1;
+    console.log(value);
     socket.emit("checkRoomStatus", value);
   });
   
