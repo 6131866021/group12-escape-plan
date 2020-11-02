@@ -479,7 +479,7 @@ input:focus {
   right:0px;
 }
 
-body{
+.gamePage .messages {
   background:#3498db;
   align-items: right;
   display: flex;
