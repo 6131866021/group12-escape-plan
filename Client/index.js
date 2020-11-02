@@ -56,11 +56,6 @@ class GameClient {
     this.playerChar = document.querySelector(".playerType");
   }
 
-  playSound() {
-    var sound = new sound("./img/sound.mp3");
-    sound.play();
-  }
-
   init() {
     //Welcome Page
     
