@@ -73,7 +73,7 @@ class GameClient {
     });
 
     //RandomGame
-    this.randomFormForm.addEventListener("submit", (event) => {
+    this.randomForm.addEventListener("submit", (event) => {
       event.preventDefault();
       socket.emit("randomRoomStatus", Math.random());
     });
