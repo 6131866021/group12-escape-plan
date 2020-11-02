@@ -303,7 +303,6 @@ input:focus {
 }
 
 .photos {
-  width: 70%;
   margin: 2rem 0rem;
   padding: 1rem 2rem;
   color: #fbfdff;
@@ -461,7 +460,7 @@ input:focus {
 }
 
 .gameOver button {
-  margin: 3rem 0rem;
+  margin: 4rem 0rem;
   padding: 2rem 2rem;
   color: #fbfdff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
