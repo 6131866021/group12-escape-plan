@@ -183,13 +183,13 @@ io.sockets.on("connection", (socket) => {
   //Random Room Number and emit checkRoomStatus()
 
   socket.on("randomRoomStatus", (data) => {
-    let arr;
+    let arr = [];
     for (var i = 0; i < gameServer.ROOM_LIST.length; i++) {
       if (gameServer.ROOM_LIST[i] != null) {
         arr.push(gameServer.ROOM_LIST[i]);
       }
     }
-    let value = Math.floor(data*(arr.length+1))-1;
+    let value = Math.floor(data*arr.length)-1;
     socket.emit("randomRoom", gameServer.ROOM_LIST[value]);
   });
   
