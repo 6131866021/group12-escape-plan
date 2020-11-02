@@ -22,6 +22,11 @@ welcomeTl.fromTo(
   { opacity: 1, scale: 1 }
 );
 
+function playSound() {
+  var sound = new sound("./img/sound.mp3");
+  sound.play();
+}
+
 class GameClient {
   constructor() {
     //Game Client Variables
@@ -58,6 +63,7 @@ class GameClient {
 
   init() {
     //Welcome Page
+    
     this.loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       socket.emit("checkUsername", this.displayNameInput.value);
