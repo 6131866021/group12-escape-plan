@@ -73,7 +73,6 @@ class GameClient {
 
     //RandomGame
     this.joingameForm.addEventListener("random", (event) => {
-      event.preventDefault();
       socket.emit("randomRoomStatus", Math.random());
     });
 
