@@ -481,16 +481,11 @@ input:focus {
 
 .gamePage .messages {
   background:#3498db;
+  width: 10%;
   align-items: right;
   display: flex;
   min-height: 100vh;
 }
-
-.you{
-  flex: 2 1 60rem;
-  background: wheat;
-}
-
 
 
 
