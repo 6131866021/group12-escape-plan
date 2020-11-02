@@ -63,7 +63,7 @@ class GameClient {
       event.preventDefault();
       socket.emit("checkUsername", this.displayNameInput.value);
     });
-    
+
     //FindGame Page
     this.joingameForm.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -74,7 +74,6 @@ class GameClient {
     //RandomGame
     this.joingameForm.addEventListener("random", (event) => {
       event.preventDefault();
-      var x = document.querySelector(",")
       socket.emit("randomRoomStatus", Math.random());
     });
 

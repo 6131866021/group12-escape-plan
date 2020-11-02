@@ -180,6 +180,8 @@ io.sockets.on("connection", (socket) => {
     socket.emit("checkRoomStatus", avail);
   });
 
+  //Random Room Number and emit checkRoomStatus()
+
   socket.on("randomRoomStatus", (data) => {
     let arr;
     for (var i = 0; i < gameServer.ROOM_LIST.length; i++) {
