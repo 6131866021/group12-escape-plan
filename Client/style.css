@@ -313,7 +313,7 @@ input:focus {
   border: none;
   background: #F0E7C3;
   box-shadow: 0px 4px 4px #f69100;
-  border-radius: 13px;
+  border-radius: 8px;
 }
 
 .photos select {
@@ -330,7 +330,6 @@ input:focus {
 }
 
 .backgrounds {
-  width: 70%;
   margin: 2rem 0rem;
   padding: 1rem 2rem;
   color: #fbfdff;
@@ -340,7 +339,7 @@ input:focus {
   border: none;
   background: #F0E7C3;
   box-shadow: 0px 4px 4px #f69100;
-  border-radius: 13px;
+  border-radius: 8px;
 }
 
 .backgrounds select {
@@ -352,7 +351,7 @@ input:focus {
   font-size: 1rem;
   border: none;
   background: #f7bf00;
-  box-shadow: 0px 3px 3px #f69100;
+  box-shadow: 0px 4px 4px #f69100;
   border-radius: 8px;
 }
 
