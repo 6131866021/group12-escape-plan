@@ -54,6 +54,8 @@ class GameClient {
     this.scoreList = document.querySelector(".userScores");
     this.itemss = this.scoreList.children;
     this.playerChar = document.querySelector(".playerType");
+    this.chatroom = document.querySelector(".chatroom");
+    this.message = this.chatroom.children;
   }
 
   init() {
@@ -247,6 +249,7 @@ class GameClient {
       gameClient.currentBlock = document.querySelector(
         "." + gameClient.currentPos
       );
+      // color select
       var photo = document.getElementById('photo').value;
       console.log(document.getElementById('photo').value);
       gameClient.currentBlock.classList.add("currentBlock");
@@ -531,5 +534,22 @@ moveRight.addEventListener("click", () => {
     gameClient.currentPos = newPos;
   }
 });
+
+let message = document.querySelector('#message');
+let messageBtn = document.querySelector('#messageBtn');
+
+messageBtn.addEventListener('click', e => {
+  console.log(message.value);
+  socket.emit('new_message', { message: message.value});
+  message.value = '';
+})
+
+socket.on('receive_message', data => {
+  console.log(data);
+  let listItem = document.createElement('li')
+  listItem.textContent = data.username + ": " + data.message;
+  listItem.classList.add('list-group-item');
+  messageList.appendChild(listItem) 
+})
 
 gameClient.init();
