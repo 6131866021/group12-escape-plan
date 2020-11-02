@@ -188,9 +188,18 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
-      var background = document.getElementById("backgrounds").value;
-      console.log(background);
-      this.gameSection.style.background = "url('./img/Jupitor.png')";
+
+      // background select
+      var background = document.getElementById('bg').value;
+      console.log(document.getElementById('bg').value);
+      if (background == "Jupiter") {
+        this.gameSection.style.background = "url('./img/Jupitor.png')";
+      } else if (background == "Venus") {
+        this.gameSection.style.background = "url('./img/Venus.png')";
+      } else {
+        this.gameSection.style.background = "url('./img/Mercury.png')";
+      }
+      
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
         console.log("Your Turn!");

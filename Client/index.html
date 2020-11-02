@@ -54,7 +54,8 @@
           <label for="gameCode"> Enter Game Code :</label>
           <input type="text" required autocomplete="off" />
         </div>
-        <button type="submit">Join Game</button>
+        <button type="submit">Join Game</button><br>
+        <button type="random">Random Room</button>
       </form>
     </section>
     <section class="waitingRoom">
@@ -62,7 +63,7 @@
         <p>Users in this room</p>
         <ul class="users"></ul>
       </div>
-      <div class="option">
+      <div class="photos">
         <label for="photo">Choose Color</label>
         <select id="photo">
           <option value="red">Red</option>
@@ -70,15 +71,15 @@
           <option value="green">Green</option>
         </select>
       </div>
-      <div class="option">
-        <label for="backgrounds">Choose Background</label>
-        <input list="backgrounds" name="background">
-        <datalist id="backgrounds" default="mercury">
-          <option value="mercury">
-          <option value="jupiter">
-          <option value="venus">
-        </datalist>
-        </div>
+      <div class="backgrounds">
+        <label for="bg">Background</label>
+        <select id="bg">
+          <option value="Jupiter">Jupiter</option>
+          <option value="Mercury">Mercury</option>
+          <option value="Venus">Venus</option>
+        </select>
+      </div>
+      </div>
         <button class="playNow">Press to continue</button>
       </div>
     </section>
