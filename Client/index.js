@@ -188,6 +188,7 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
+      this.document.body.style.backgroundImage = "url('./img/Jupitor.png')";
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
         console.log("Your Turn!");
@@ -362,7 +363,6 @@ class GameClient {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
         }
       }
-      document.body.style.backgroundImage = "url('./img/Jupitor.png')";
     });
 
     socket.on("userLeftRoom", (data) => {
