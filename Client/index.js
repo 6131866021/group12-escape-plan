@@ -68,6 +68,7 @@ class GameClient {
     this.joingameForm.addEventListener("submit", (event) => {
       event.preventDefault();
       this.gameCodeInput = this.joingameForm.querySelector("input");
+      console.log(this.gameCodeInput);
       socket.emit("checkRoomStatus", this.gameCodeInput.value);
     });
 
