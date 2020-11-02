@@ -188,6 +188,8 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
+      var background = document.getElementById("backgrounds").value;
+      console.log(background);
       this.gameSection.style.background = "url('./img/Jupitor.png')";
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
