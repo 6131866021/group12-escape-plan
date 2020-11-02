@@ -325,7 +325,7 @@ input:focus {
   border: none;
   background: #f7bf00;
   box-shadow: 0px 4px 4px #f69100;
-  border-radius: 13px;  
+  border-radius: 8px;  
 }
 
 .backgrounds {
@@ -338,7 +338,7 @@ input:focus {
   border: none;
   background: #f7bf00;
   box-shadow: 0px 4px 4px #f69100;
-  border-radius: 8px;
+  border-radius: 13px;
 }
 
 .backgrounds select {
@@ -460,8 +460,8 @@ input:focus {
 }
 
 .gameOver button {
-  margin: 1rem 0rem;
-  padding: 1rem 1rem;
+  margin: 3rem 0rem;
+  padding: 2rem 2rem;
   color: #fbfdff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-family: "Rationale", sans-serif;
