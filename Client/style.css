@@ -315,6 +315,19 @@ input:focus {
   border-radius: 13px;
 }
 
+.photos option {
+  margin: 2rem 0rem;
+  padding: 1rem 2rem;
+  color: #fbfdff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Rationale", sans-serif;
+  font-size: 2rem;
+  border: none;
+  background: #f7bf00;
+  box-shadow: 0px 4px 4px #f69100;
+  border-radius: 13px;  
+}
+
 .backgrounds {
   margin: 2rem 0rem;
   padding: 1rem 2rem;

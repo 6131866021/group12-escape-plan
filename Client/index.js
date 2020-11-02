@@ -192,13 +192,13 @@ class GameClient {
       // background select
       var background = document.getElementById('bg').value;
       console.log(background);
-      /* if (background == "Jupiter") {
+      if (background == "Jupiter") {
         this.gameSection.style.background = "url('./img/Jupitor.png')";
       } else if (background == "Venus") {
         this.gameSection.style.background = "url('./img/Venus.png')";
       } else {
         this.gameSection.style.background = "url('./img/Mercury.png')";
-      } */
+      }
 
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
