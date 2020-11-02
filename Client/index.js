@@ -57,12 +57,13 @@ class GameClient {
   }
 
   init() {
+
     //Welcome Page
-    
     this.loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       socket.emit("checkUsername", this.displayNameInput.value);
     });
+    
     //FindGame Page
     this.joingameForm.addEventListener("submit", (event) => {
       event.preventDefault();
