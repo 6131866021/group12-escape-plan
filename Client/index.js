@@ -35,6 +35,7 @@ class GameClient {
     //FindGame Page
     this.findGameSection = document.querySelector(".roomCreation");
     this.joingameForm = document.querySelector(".joinGame");
+    this,randomForm = document.querySelector('.random');
     this.roomWarning = document.querySelector(".roomWarning");
     //Waiting Page
     this.waitingSection = document.querySelector(".waitingRoom");
@@ -73,7 +74,7 @@ class GameClient {
     });
 
     //RandomGame
-    this.joingameForm.addEventListener("random", (event) => {
+    this.randomForm.addEventListener("submit", (event) => {
       event.preventDefault();
       socket.emit("randomRoomStatus", Math.random());
     });
