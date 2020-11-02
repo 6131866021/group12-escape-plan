@@ -188,7 +188,7 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
-      this.document.body.style.backgroundImage = "url('./img/Jupitor.png')";
+      this.gameSection.style.background = "url('./img/Jupitor.png')";
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
         console.log("Your Turn!");
