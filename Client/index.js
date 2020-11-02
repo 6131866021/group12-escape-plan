@@ -77,6 +77,11 @@ class GameClient {
       socket.emit("randomRoomStatus", Math.random());
     });
 
+    //Value of Random Number
+    socket.on("randomRoomStatus", (data) => {
+      console.log(data);
+    });
+
     //Play Button
     this.playBtn.addEventListener("click", (event) => {
       if (this.userList.childElementCount == 1) {

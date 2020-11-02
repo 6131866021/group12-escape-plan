@@ -190,8 +190,7 @@ io.sockets.on("connection", (socket) => {
       }
     }
     let value = Math.floor(data*(arr.length+1))-1;
-    console.log(value);
-    socket.emit("checkRoomStatus", value);
+    socket.emit("randomRoomStatus", value);
   });
   
   socket.on("startGame", async (data) => {
