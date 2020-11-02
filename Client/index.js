@@ -1,3 +1,5 @@
+const e = require("express");
+
 const socket = io();
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
@@ -199,7 +201,7 @@ class GameClient {
       } else {
         this.gameSection.style.background = "url('./img/Mercury.png')";
       }
-      
+
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
         console.log("Your Turn!");
@@ -236,8 +238,9 @@ class GameClient {
             existingSprite.id = undefined;
           }
           let id = "Pos" + key;
+
           // color select
-          var photo = document.getElementById('photo').value;
+          let photo = document.getElementById('photo').value;
           console.log(document.getElementById('photo').value);
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
@@ -246,7 +249,7 @@ class GameClient {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else if (photo == "white"){
               otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
-            }else {
+            } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
           } else {
@@ -265,14 +268,14 @@ class GameClient {
       );
 
       // color select
-      var photo = document.getElementById('photo').value;
+      let photo = document.getElementById('photo').value;
       console.log(document.getElementById('photo').value);
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
         if (photo == "white") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
-        } else if (photo == "red"){
+        } else if (photo == "red") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
@@ -281,7 +284,7 @@ class GameClient {
         this.playerChar.innerText = "You are the Astronaut";
         if (photo == "white") {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
-        } else if (photo == "red"){
+        } else if (photo == "red") {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
@@ -340,15 +343,23 @@ class GameClient {
           let id = "Pos" + key;
           otherPlayerBlock.classList.add("otherPlayerBlock");
           otherPlayerBlock.id = id;
+
+          // color select
+          let photo = document.getElementById('photo').value;
+          console.log(document.getElementById('photo').value);
           if (gameData.users[gameData.warderIndex] == key) {
-            if (color == 1) {
+            if (photo == "green") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
+            } else if (photo == "white") {
+              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />'
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
           } else {
-            if (color == 1) {
+            if (photo == "green") {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
+            } else if (photo == "white") {
+              otherPlayerBlock.innerHTML = '<img src="./img/astro2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
             }
@@ -360,16 +371,23 @@ class GameClient {
         "." + gameClient.currentPos
       );
       gameClient.currentBlock.classList.add("currentBlock");
-      let color=2;
+      
+      // color select
+      let photo = document.getElementById('photo').value;
+      console.log(document.getElementById('photo').value);
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
-        if (color == 1) {
+        if (photo == "white") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
+        } else if (photo == "red") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/alien2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
         }
       } else {
-        if (color == 1) {
+        if (photo == "white") {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
+        } else if (photo == "red") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro2.svg" />';
         } else {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
         }
