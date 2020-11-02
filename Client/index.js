@@ -1,5 +1,3 @@
-const e = require("express");
-
 const socket = io();
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
