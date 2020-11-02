@@ -35,14 +35,12 @@
       <img id="rocket2" src="./img/startup 1.svg" alt="" />
       <h2>Game Instructions</h2>
       <div class="instructions">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, modi.
-        </p>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse, vel
-          quasi veniam quidem sit reprehenderit!
-        </p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p> There are 2 characters in the games; Astronaut and Alien </p>
+        <p> The player who become the Alien will start to move first. </p>
+        <p> All players cannot access the obstacle blocks (UFO) and only the astronaut can access the rocket block. </p>
+        <p> For each turn, you will have 10 seconds to move to one adjacent blocks. </p>
+        <p> If the alien accesses to the same block of the astronaut, the player who plays the alien will win. 
+        <p> But if the astronaut accesses the rocket, the player who plays the astronaut will win. </p>
       </div>
     </section>
     <section class="roomCreation">
@@ -92,7 +90,15 @@
         <input type="submit" class="btn" value="Send"></input>
       </form>
 
-      
+      <div class="chat">
+        <div >Chat</div>
+        <div class ="messages" id="messages" style="text-align: left;">
+       </div>
+       <form>
+           <input id="m" type="text" style="width:70%;height:30px; autocomplete="off">
+            <input class = "btn" type="submit" value="Send"></input>
+       </form>
+
       <div class="gridContainer">
         <div class="x1y1 box"></div>
         <div class="x1y2 box"></div>
@@ -150,5 +156,19 @@
     ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./index.js"></script>
+    <script>
+      $(function () {
+      var socket = io();
+      $('form').submit(function(e) {
+          e.preventDefault(); // prevents page reloading
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+      });
+      socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+        });
+      });
+    </script>
   </body>
 </html>
