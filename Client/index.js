@@ -188,7 +188,7 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
-      //this.gameSection.style.background = "url('./img/Mercury.png')";
+      this.gameSection.style.background = "url('./img/Mercury.png')";
       console.log(gameData);
       if (gameData.turn == gameClient.displayName) {
         console.log("Your Turn!");
@@ -240,11 +240,11 @@ class GameClient {
             }
           } else {
             if (photo == "green") {
-              otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
+              otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
             } else if (photo == "white"){
-              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
+              otherPlayerBlock.innerHTML = '<img src="./img/astro2.svg" />';
             }else {
-              otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
+              otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
             }}
         }
       });
@@ -269,11 +269,11 @@ class GameClient {
       } else {
         this.playerChar.innerText = "You are the Astronaut";
         if (photo == "white") {
-          gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
         } else if (photo == "red"){
-          gameClient.currentBlock.innerHTML = '<img src="./img/alien2.svg" />';
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro2.svg" />';
         } else {
-          gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
         }
       console.log(gameClient.gameState);
       this.scoreList.innerHTML = "";
