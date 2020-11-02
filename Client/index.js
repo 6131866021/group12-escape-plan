@@ -22,11 +22,6 @@ welcomeTl.fromTo(
   { opacity: 1, scale: 1 }
 );
 
-function playSound() {
-  var sound = new sound("./img/sound.mp3");
-  sound.play();
-}
-
 class GameClient {
   constructor() {
     //Game Client Variables
@@ -59,6 +54,11 @@ class GameClient {
     this.scoreList = document.querySelector(".userScores");
     this.itemss = this.scoreList.children;
     this.playerChar = document.querySelector(".playerType");
+  }
+
+  playSound() {
+    var sound = new sound("./img/sound.mp3");
+    sound.play();
   }
 
   init() {
