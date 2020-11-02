@@ -179,6 +179,17 @@ io.sockets.on("connection", (socket) => {
     }
     socket.emit("checkRoomStatus", avail);
   });
+
+  socket.on("randomRoomStatus", (data) => {
+    let arr;
+    for (var i = 0; i < gameServer.ROOM_LIST.length; i++) {
+      if (gameServer.ROOM_LIST[i] != null) {
+        arr.push(i);
+      }
+    }
+    let value = Math.floor(data*arr.length)-1;
+    socket.emit("checkRoomStatus", value);
+  });
   
   socket.on("startGame", async (data) => {
     console.log("Room " + data + " has started the game!");

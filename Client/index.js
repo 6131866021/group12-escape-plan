@@ -70,6 +70,14 @@ class GameClient {
       socket.emit("checkRoomStatus", this.gameCodeInput.value);
     });
 
+    //RandomGame
+    this.joingameForm.addEventListener("random", (event) => {
+      event.preventDefault();
+      var x = document.querySelector(",")
+      socket.emit("randomRoomStatus", Math.random());
+    });
+
+    //Play Button
     this.playBtn.addEventListener("click", (event) => {
       if (this.userList.childElementCount == 1) {
         window.alert("Go find a friend, Loser!");
