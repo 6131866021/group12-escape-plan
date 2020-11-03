@@ -87,8 +87,9 @@
     </section>
     <section class="gamePage">
 
-      <!--
+<!-- Chatroom -->
 
+      <!--
       <div class="messages">
         <div>Chat</div>
       </div>
@@ -104,7 +105,8 @@
       <form>
            <input id="m" type="text" style="width:70%;height:30px; autocomplete="off">
             <input class = "btn" type="submit" value="Send"></input>
-      </form> -->
+      </form> 
+      -->
 
       <div class="gridContainer">
         <div class="x1y1 box"></div>
@@ -172,7 +174,14 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="./index.js"></script>
 
-    <!--
+    <!-- Chatroom
+    <script>
+      function playSound() {
+        var sound = new sound("./img/sound.mp3");
+        sound.play();
+      }
+    </script>
+
     <script>
       $(function () {
       var socket = io();
@@ -186,7 +195,8 @@
           $('#messages').append($('<li>').text(msg));
         });
       });
-    </script> -->
+    </script> 
+    -->
 
   </body>
 </html>
