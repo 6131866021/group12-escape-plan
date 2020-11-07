@@ -1,11 +1,13 @@
+// Socket
+let themeMusic = document.querySelector(".theme-music");
 const socket = io();
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
 rocket.fromTo(
   "#rocket",
   5,
-  { x: "-100%", y: "-100%", rotate: -90 },
-  { rotate: -45, x: "500", y: "200" }
+  { top: "-10%", left: "-10%", rotate: -90 },
+  { rotate: -45, left: "70%", top: "70%" }
 );
 
 let welcomeTl = gsap.timeline();
@@ -35,8 +37,8 @@ class GameClient {
     //FindGame Page
     this.findGameSection = document.querySelector(".roomCreation");
     this.joingameForm = document.querySelector(".joinGame");
-    this,randomForm = document.querySelector('.random');
     this.roomWarning = document.querySelector(".roomWarning");
+    this.randomBtn = document.querySelector(".random");
     //Waiting Page
     this.waitingSection = document.querySelector(".waitingRoom");
     this.userList = document.querySelector(".users");
@@ -58,14 +60,11 @@ class GameClient {
   }
 
   init() {
-
-    //Welcome Page
     this.loginForm.addEventListener("submit", (event) => {
       event.preventDefault();
       socket.emit("checkUsername", this.displayNameInput.value);
     });
 
-    //FindGame Page
     this.joingameForm.addEventListener("submit", (event) => {
       event.preventDefault();
       this.gameCodeInput = this.joingameForm.querySelector("input");
@@ -73,22 +72,14 @@ class GameClient {
       socket.emit("checkRoomStatus", this.gameCodeInput.value);
     });
 
-    //RandomGame
-    this.randomForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      socket.emit("randomRoomStatus", Math.random());
+    this.randomBtn.addEventListener("click", (event) => {
+      socket.emit("randomRoom");
+      event.target.style.pointerEvents = "none";
     });
 
-    //Value of Random Number
-    socket.on("randomRoom", (data) => {
-      console.log(data);
-      socket.emit("checkRoomStatus", data);
-    });
-
-    //Play Button
     this.playBtn.addEventListener("click", (event) => {
       if (this.userList.childElementCount == 1) {
-        window.alert("Go find a friend, Loser!");
+        window.alert("Go find a friend!");
       } else {
         socket.emit("startGame", this.inRoom);
       }
@@ -97,7 +88,7 @@ class GameClient {
     this.nextRoundBtn.addEventListener("click", (event) => {
       socket.emit("startGame", this.inRoom);
       this.nextRoundBtn.style.opacity = 0;
-      gameClient.nextRoundBtn.style.pointerEvents = "none";
+      this.nextRoundBtn.style.pointerEvents = "none";
     });
 
     this.endGame.addEventListener("click", (event) => {
@@ -140,6 +131,30 @@ class GameClient {
         );
         this.roomWarning.classList.remove("active");
         this.inRoom = this.gameCodeInput.value;
+        let user = document.createElement("li");
+        user.innerText = gameClient.displayName;
+        this.userList.append(user);
+      } else {
+        this.roomWarning.classList.add("active");
+      }
+    });
+
+    socket.on("randomStatus", ({ data, roomName }) => {
+      if (data) {
+        welcomeTl.fromTo(
+          ".roomCreation",
+          1,
+          { opacity: 1, display: "flex" },
+          { opacity: 0, scale: 1, display: "none" }
+        );
+        welcomeTl.fromTo(
+          ".waitingRoom",
+          1,
+          { opacity: 0, display: "flex" },
+          { opacity: 1, scale: 1, display: "flex" }
+        );
+        this.roomWarning.classList.remove("active");
+        this.inRoom = roomName;
         let user = document.createElement("li");
         user.innerText = gameClient.displayName;
         this.userList.append(user);
@@ -207,7 +222,7 @@ class GameClient {
       this.gameSection.style.display = "flex";
 
       // background select
-      var background = document.getElementById('bg').value;
+      var background = document.getElementById("bg").value;
       console.log(background);
       if (background == "Jupiter") {
         this.gameSection.style.background = "url('./img/Jupitor.png')";
@@ -258,12 +273,12 @@ class GameClient {
           otherPlayerBlock.id = id;
 
           // color select
-          var photo = document.getElementById('photo').value;
+          var photo = document.getElementById("photo").value;
           console.log(photo);
           if (gameData.users[gameData.warderIndex] == key) {
             if (photo == "green") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
-            } else if (photo == "white"){
+            } else if (photo == "white") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
@@ -271,11 +286,12 @@ class GameClient {
           } else {
             if (photo == "green") {
               otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
-            } else if (photo == "white"){
+            } else if (photo == "white") {
               otherPlayerBlock.innerHTML = '<img src="./img/astro2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
-            }}
+            }
+          }
         }
       });
       gameClient.gameState = gameData;
@@ -284,7 +300,7 @@ class GameClient {
       );
 
       // color select
-      var photo = document.getElementById('photo').value;
+      var photo = document.getElementById("photo").value;
       gameClient.currentBlock.classList.add("currentBlock");
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         this.playerChar.innerText = "You are the Alien";
@@ -305,16 +321,17 @@ class GameClient {
           gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
         }
 
-      console.log(gameClient.gameState);
-      this.scoreList.innerHTML = "";
-      for (var i in gameClient.gameState.users) {
-        let element = document.createElement("p");
-        element.innerText =
-          gameClient.gameState.users[i] + ":" + gameClient.gameState.score[i];
+        console.log(gameClient.gameState);
+        this.scoreList.innerHTML = "";
+        for (var i in gameClient.gameState.users) {
+          let element = document.createElement("p");
+          element.innerText =
+            gameClient.gameState.users[i] + ":" + gameClient.gameState.score[i];
 
-        this.scoreList.appendChild(element);
+          this.scoreList.appendChild(element);
+        }
       }
-    }});
+    });
 
     socket.on("gameOver", (gameData) => {
       this.nextRoundBtn.style.opacity = 1;
@@ -361,13 +378,13 @@ class GameClient {
           otherPlayerBlock.id = id;
 
           // color select
-          var photo = document.getElementById('photo').value;
+          var photo = document.getElementById("photo").value;
           console.log("Next game color: " + photo);
           if (gameData.users[gameData.warderIndex] == key) {
             if (photo == "green") {
               otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
             } else if (photo == "white") {
-              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />'
+              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
             } else {
               otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
             }
@@ -387,9 +404,9 @@ class GameClient {
         "." + gameClient.currentPos
       );
       gameClient.currentBlock.classList.add("currentBlock");
-      
+
       // color select
-      var photo = document.getElementById('photo').value;
+      var photo = document.getElementById("photo").value;
       if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
         if (photo == "white") {
           gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
@@ -423,6 +440,7 @@ class GameClient {
     });
   }
 }
+
 socket.emit("fromIndex", " true");
 const gameClient = new GameClient();
 

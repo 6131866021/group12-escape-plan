@@ -182,17 +182,6 @@ io.sockets.on("connection", (socket) => {
 
   //Random Room Number and emit checkRoomStatus()
 
-  socket.on("randomRoomStatus", (data) => {
-    let arr = [];
-    for (var i = 0; i < gameServer.ROOM_LIST.length; i++) {
-      if (gameServer.ROOM_LIST[i] != null) {
-        arr.push(gameServer.ROOM_LIST[i]);
-      }
-    }
-    let value = Math.floor(data*arr.length)-1;
-    socket.emit("randomRoom", gameServer.ROOM_LIST[value]);
-  });
-  
   socket.on("startGame", async (data) => {
     console.log("Room " + data + " has started the game!");
     io.to(data).emit("cleanGrid");
@@ -380,6 +369,35 @@ io.sockets.on("connection", (socket) => {
       gameServer.USER_LIST[i].inRoom = undefined;
     }
     delete gameServer.ROOM_LIST[inRoom];
+  });
+
+  socket.on("randomRoom", () => {
+    let availableRoom = [];
+    for (i in gameServer.ROOM_LIST) {
+      let len = 0;
+      Object.keys(gameServer.ROOM_LIST[i].users).forEach((user) => {
+        len++;
+      });
+      if (len == 1) {
+        availableRoom.push(i);
+      }
+    }
+    let data = availableRoom[0];
+    socket.join(data);
+    let users = [];
+    let thisUser = [];
+
+    console.log(availableRoom);
+    thisUser.push(gameServer.USER_LIST[socket.id].name);
+    for (var i in gameServer.ROOM_LIST[data].users) {
+      users.push(gameServer.ROOM_LIST[data].users[i].name);
+    }
+    socket.emit("existingUser", JSON.stringify(users));
+    socket.to(data).emit("existingUser", JSON.stringify(thisUser));
+    gameServer.USER_LIST[socket.id].inRoom = data;
+    gameServer.ROOM_LIST[data].users[socket.id] = socket;
+
+    socket.emit("randomStatus", { data: true, roomName: data });
   });
 
   socket.on("disconnect", () => {
