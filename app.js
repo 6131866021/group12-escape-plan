@@ -180,7 +180,6 @@ io.sockets.on("connection", (socket) => {
     socket.emit("checkRoomStatus", avail);
   });
 
-  //Random Room Number and emit checkRoomStatus()
 
   socket.on("startGame", async (data) => {
     console.log("Room " + data + " has started the game!");
@@ -260,6 +259,7 @@ io.sockets.on("connection", (socket) => {
     }
 
     //Crafting message
+    
     let userPosMsg = {};
     gameState.users = [];
     for (var i in gameServer.ROOM_LIST[data].users) {
@@ -370,6 +370,8 @@ io.sockets.on("connection", (socket) => {
     }
     delete gameServer.ROOM_LIST[inRoom];
   });
+
+  // randomRoom
 
   socket.on("randomRoom", () => {
     let availableRoom = [];

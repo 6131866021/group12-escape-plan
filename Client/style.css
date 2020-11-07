@@ -429,7 +429,8 @@ input:focus {
 }
 
 .messages {
-  background: #f4f4f4;
+  /* background: #f4f4f4; */
+  background: transparent;
   border-radius: 5px;
   width: 90%;
   height: 90%;

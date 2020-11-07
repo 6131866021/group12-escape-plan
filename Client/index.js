@@ -220,6 +220,7 @@ class GameClient {
       gameClient.nextRoundBtn.style.pointerEvents = "none";
       this.waitingSection.style.display = "none";
       this.gameSection.style.display = "flex";
+      this.gameSection.style.background = "url('./img/Jupitor.png')";
 
       // background select
       var background = document.getElementById("bg").value;
