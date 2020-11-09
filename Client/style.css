@@ -417,7 +417,7 @@ input:focus {
   display: none;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #f4f4f4;
+  background-color: #1e2952;
 }
 
 .game {
@@ -479,7 +479,6 @@ input:focus {
   align-items: center;
   justify-content: center;
   background: #1e2952;
-  background-color: inherit;
 }
 
 .gridContainer {
