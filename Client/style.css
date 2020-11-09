@@ -479,6 +479,7 @@ input:focus {
   align-items: center;
   justify-content: center;
   background: #1e2952;
+  background-color: inherit;
 }
 
 .gridContainer {
