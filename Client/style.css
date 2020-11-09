@@ -422,11 +422,12 @@ input:focus {
 
 .game {
   flex: 2 2 40rem;
+  background: url("./img/Mercury.png");
 }
 
 .chat {
   flex: 1 1 20rem;
-  background: #1e2952;
+  background: #f4f4f4;
 }
 
 .messages {
