@@ -417,6 +417,7 @@ input:focus {
   display: none;
   min-height: 100vh;
   overflow: hidden;
+  background: url("./img/Jupitor.png");
 }
 
 .game {
