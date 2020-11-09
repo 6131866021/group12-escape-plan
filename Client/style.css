@@ -422,7 +422,6 @@ input:focus {
 
 .game {
   flex: 2 2 40rem;
-  background: url("./img/Mercury.png");
   background-color: inherit;
 }
 
