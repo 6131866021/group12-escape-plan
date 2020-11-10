@@ -222,6 +222,7 @@ class GameClient {
       this.gameSection.style.display = "flex";
 
       // background select
+      //sdsd
       var background = document.getElementById("bg").value;
       console.log(background);
       if (background == "Jupiter") {
