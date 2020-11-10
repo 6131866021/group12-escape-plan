@@ -358,6 +358,8 @@ io.sockets.on("connection", (socket) => {
     }
   });
 
+  // terminateRoom
+
   socket.on("terminateRoom", (inRoom) => {
     io.to(inRoom).emit("roomTerminated");
     for (i in gameServer.ROOM_LIST[inRoom].users) {
@@ -420,6 +422,11 @@ io.sockets.on("connection", (socket) => {
     delete gameServer.USER_LIST[socket.id];
     socket.to("admin").emit("population", gameServer.userListLength());
   });
+
+  socket.on("resetRoom", () => {
+    socket.emit("terminateRoom", inRoom);
+  });
+
 });
 
 var port = process.env.PORT || 8080;
