@@ -164,13 +164,13 @@
     <script src="./index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
+            $('#messages').empty();
             $(function () {
             var socket = io();
             $('form').submit(function(e) {
                 e.preventDefault(); // prevents page reloading
                 socket.emit('chat message', $('#m').val());
                 // $('#m').val('');
-                $('#messages').empty();
                 return false;
             });
             socket.on('chat message', function(msg){
