@@ -15,7 +15,7 @@ app.get("/admin", (req, res) => {
   res.sendFile(__dirname + "/Server/admin.html");
 });
 
-io.on('connection', (socket) => {
+/* io.on('connection', (socket) => {
   console.log('a client connected');
   //Listen
   socket.on('chat message', (msg) => {
@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
     //Reply
     io.emit('chat message', msg);
   });
-})
+}) */
 
 async function checkPath(pos1, pos2, availablePath) {
   let pos_1_Traversal = [];
@@ -148,6 +148,14 @@ io.sockets.on("connection", (socket) => {
       console.log(gameServer.USER_LIST[i].name);
     }
     socket.emit("checkUsername", ret);
+  });
+
+  socket.on('chat message', (msg) => {
+    console.log('message:'+  msg);
+    socket.emit('chat message', msg);
+      //Reply
+      // io.emit('chat message', msg);
+    });
   });
 
   socket.on("checkRoomStatus", (data) => {
