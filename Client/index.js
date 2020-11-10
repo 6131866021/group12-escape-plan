@@ -478,7 +478,7 @@ let timer = {
     if (this.count <= 0) {
       this.count = 0;
       clearInterval(this.interval);
-      this.timerHTML.innerText = "Time's Up";
+      this.timerHTML.innerText = "Time's up! Opponent's turn";
       gameClient.moveButton.style.opacity = 0;
       gameClient.moveButton.style.pointerEvents = "none";
       socket.emit("finishTurn", [gameClient.inRoom, gameClient.currentPos]);
