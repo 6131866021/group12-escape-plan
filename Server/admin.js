@@ -11,6 +11,10 @@ socket.on('population', (population) => {
 
 let reset = document.querySelector(".reset");
 
-reset.addEventListener("click", () => {
+reset.addEventListener("click", (event) => {
     socket.emit("resetRoom", "true");
+});
+
+socket.on('resetRoom2', (inRoom) => {
+    socket.emit("terminateRoom", this.inRoom);
 });

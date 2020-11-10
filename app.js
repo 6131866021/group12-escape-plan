@@ -424,7 +424,7 @@ io.sockets.on("connection", (socket) => {
   });
 
   socket.on("resetRoom", () => {
-    socket.emit("terminateRoom", inRoom);
+    socket.emit("resetRoom2", gameServer.ROOM_LIST[inRoom]);
   });
 
 });
