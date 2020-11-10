@@ -1,5 +1,5 @@
 // Socket
-let themeMusic = document.querySelector(".theme-music").;
+let themeMusic = document.querySelector(".theme-music");
 const socket = io();
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
