@@ -1,5 +1,5 @@
 // Socket
-let themeMusic = document.querySelector(".theme-music");
+let themeMusic = document.querySelector(".theme-music").;
 const socket = io();
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
@@ -486,10 +486,17 @@ let timer = {
   },
 };
 
+let extendTimer = document.querySelector(".extendTimer");
+extendTimer.addEventListener("click", () => { 
+  timer.start();
+});
+
 const moveUp = document.querySelector(".moveUp");
 const moveDown = document.querySelector(".moveDown");
 const moveLeft = document.querySelector(".moveLeft");
 const moveRight = document.querySelector(".moveRight");
+
+
 
 moveUp.addEventListener("click", () => {
   let newPos =
