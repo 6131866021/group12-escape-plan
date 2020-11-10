@@ -15,6 +15,6 @@ reset.addEventListener("click", (event) => {
     socket.emit("resetRoom", "true");
 });
 
-socket.on('resetRoom2', (inRoom) => {
+/* socket.on('resetRoom2', (inRoom) => {
     socket.emit("terminateRoom", inRoom);
-});
+}); */
