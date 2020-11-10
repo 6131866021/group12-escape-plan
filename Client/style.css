@@ -425,7 +425,7 @@ input:focus {
 }
 
 .chat {
-  flex: 1 1 20rem;
+  flex: 1 1 10rem;
   background-color:transparent white;
 }
 
