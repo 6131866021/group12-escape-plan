@@ -423,11 +423,9 @@ io.sockets.on("connection", (socket) => {
     socket.to("admin").emit("population", gameServer.userListLength());
   });
 
-/*  socket.on("resetRoom", () => {
-    socket.emit("resetRoom2", gameServer.ROOM_LIST[inRoom]);
+  socket.on("resetRoom", () => {
+    socket.emit("resetRoom2", "true");
   }); 
-
-*/
 
 });
 

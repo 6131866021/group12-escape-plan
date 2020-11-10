@@ -95,6 +95,10 @@ class GameClient {
       socket.emit("terminateRoom", this.inRoom);
     });
 
+    socket.on("resetRoom2", () => {
+      socket.emit("terminateRoom", this.inRoom);
+    })
+
     socket.on("roomTerminated", () => {
       gameClient.gameData = undefined;
       this.userList.innerHTML = "";
