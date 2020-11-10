@@ -154,6 +154,7 @@
           </div>
       </div>
     </div>
+    
     <audio class="theme-music" src="./sounds/theme-music.mp3" autoplay=loop></audio>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"
@@ -164,13 +165,12 @@
     <script src="./index.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
-            $('#messages').empty();
             $(function () {
             var socket = io();
             $('form').submit(function(e) {
                 e.preventDefault(); // prevents page reloading
                 socket.emit('chat message', $('#m').val());
-                // $('#m').val('');
+                $('#m').val('');
                 return false;
             });
             socket.on('chat message', function(msg){

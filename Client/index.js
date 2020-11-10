@@ -115,14 +115,6 @@ class GameClient {
       }
     });
 
-    /* socket.on('chat message', (msg) => {
-      console.log('message:'+  msg);
-      socket.emit('chat message', msg);
-        //Reply
-        // io.emit('chat message', msg);
-      });
-    }); */
-
     socket.on("checkRoomStatus", (data) => {
       if (data) {
         welcomeTl.fromTo(
