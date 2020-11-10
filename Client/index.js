@@ -229,7 +229,7 @@ class GameClient {
       } else if (background == "Venus") {
         this.gameSection.style.background = "url('./img/Venus.jpg')";
       } else {
-        this.gameSection.style.background = "url('./img/Mercury.jng')";
+        this.gameSection.style.background = "url('./img/Mercury.jpg')";
       }
 
       console.log(gameData);
