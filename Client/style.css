@@ -476,6 +476,7 @@ input:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background: url("./img/Mercury.jpg");
 }
 
 .gridContainer {
