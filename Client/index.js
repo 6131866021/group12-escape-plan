@@ -489,6 +489,7 @@ let timer = {
 let extendTimer = document.querySelector(".extendTimer");
 extendTimer.addEventListener("click", () => { 
   timer.start();
+  extendTimer.style.display = "none";
 });
 
 const moveUp = document.querySelector(".moveUp");
