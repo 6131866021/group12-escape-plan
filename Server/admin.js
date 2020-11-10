@@ -8,3 +8,4 @@ socket.on('population', (population) => {
     const items = popNum.children
     popNum.innerText = population;
 })
+
