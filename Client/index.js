@@ -225,11 +225,11 @@ class GameClient {
       var background = document.getElementById("bg").value;
       console.log(background);
       if (background == "Jupiter") {
-        this.gameSection.game.style.background = "url('./img/Jupitor.png')";
+        this.gameSection.game.style.background = "url('./img/Jupitor.jpg')";
       } else if (background == "Venus") {
-        this.gameSection.game.style.background = "url('./img/Venus.png')";
+        this.gameSection.game.style.background = "url('./img/Venus.jpg')";
       } else {
-        this.gameSection.game.style.background = "url('./img/Mercury.png')";
+        this.gameSection.game.style.background = "url('./img/Mercury.jng')";
       }
 
       console.log(gameData);
