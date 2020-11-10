@@ -425,6 +425,7 @@ input:focus {
 
 .game {
   flex: 2 2 40rem;
+  color: #f4f4f4;
 }
 
 .chat {
