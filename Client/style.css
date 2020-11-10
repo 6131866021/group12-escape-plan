@@ -437,7 +437,7 @@ input:focus {
   mix-blend-mode: lighten;
   border-radius: 5px;
   width: 90%;
-  height: 90%;
+  height: 50%;
   margin: 5% auto 5% auto;
   border: 1px solid;
   border-color: #f4f4f4;
