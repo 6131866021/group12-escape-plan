@@ -145,7 +145,7 @@
         </div>
       </div>
       <div class="chat">
-        <div>Chat</div>
+        <div style="text-align: center;">Chat</div>
           <div class="messages" id="messages"></div>
             <form>
               <input type="text" id="m" autocomplete="off">
@@ -176,7 +176,7 @@
                 return false;
             });
             socket.on('chat message', function(msg){
-                $('#messages').append($('<p>').text(msg));
+                $('#messages').append($('<p>').text("  " + msg));
             });
         });
         </script>
