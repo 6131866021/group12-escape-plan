@@ -166,7 +166,8 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
             $(function () {
-            var socket = io();
+            var socket = io($('#messages'));
+            console.log()
             $('form').submit(function(e) {
                 e.preventDefault(); // prevents page reloading
                 socket.emit('chat message', $('#m').val());
