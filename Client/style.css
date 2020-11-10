@@ -414,6 +414,7 @@ input:focus {
 /* gamePage */
 
 .gamePage {
+  margin: 1rem;
   display: none;
   min-height: 100vh;
   overflow: hidden;
@@ -537,6 +538,7 @@ input:focus {
   left: 60%;
   right: 20%;
   top: 60%;
+  bottom: 40%;
 }
 
 .nextRound {
