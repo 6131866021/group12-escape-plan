@@ -505,6 +505,15 @@ extendTimer.addEventListener("click", () => {
   extendTimer.style.display = "none";
 });
 
+// BreakObstacle
+
+let breakOb = document.querySelector(".breakObstacle");
+breakOb.addEventListener("click", () => { 
+  gameData.obstaclePos.pop();
+  breakOb.style.display = "none";
+});
+
+
 const moveUp = document.querySelector(".moveUp");
 const moveDown = document.querySelector(".moveDown");
 const moveLeft = document.querySelector(".moveLeft");

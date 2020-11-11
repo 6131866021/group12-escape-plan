@@ -542,6 +542,22 @@ input:focus {
   bottom: 35%;
 }
 
+.controls .breakObstacle {
+  color: #fbfdff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Rationale", sans-serif;
+  font-size: 1.5rem;
+  border: none;
+  background: #f7bf00;
+  box-shadow: 0px 4px 4px #f69100;
+  border-radius: 10px;
+  position: absolute;
+  left: 60%;
+  right: 20%;
+  top: 70%;
+  bottom: 25%;
+}
+
 .nextRound {
   opacity: 1;
 }
