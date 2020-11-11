@@ -222,11 +222,11 @@ io.sockets.on("connection", (socket) => {
 
     //Random Trap Pos
     let TrapPos = [];
-    let indexRemove = 
+    let indexTrapRemove = 
     Math.floor(Math.random() * (gameState.gridPositions.length + 1)) %
     gameState.gridPositions.length;
-    TrapPos.push(gameState.gridPositions[indexRemove]);
-    gameState.gridPositions.splice(indexRemove, 1);
+    TrapPos.push(gameState.gridPositions[indexTrapRemove]);
+    gameState.gridPositions.splice(indexTrapRemove, 1);
 
     //Random Player Pos
     let UserPos = [];
