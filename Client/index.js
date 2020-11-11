@@ -236,7 +236,7 @@ class GameClient {
       this.gameSection.style.display = "flex";
 
       // background select
-      //sdsd
+
       var background = document.getElementById("bg").value;
       console.log(background);
       if (background == "Jupiter") {
@@ -272,7 +272,7 @@ class GameClient {
 
       for (var i in gameData.trapPos) {
         let obstacleSprite = document.querySelector("." + gameData.trapPos[i]);
-        obstacleSprite.innerHTML = '<img src="./img/right.png" />';
+        obstacleSprite.innerHTML = '<img src="./img/blackhole.png" />';
       }
 
       Object.keys(gameData.playerPos).forEach(function (key) {
