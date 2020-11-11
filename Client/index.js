@@ -497,6 +497,8 @@ let timer = {
   },
 };
 
+// ExtendTimer
+
 let extendTimer = document.querySelector(".extendTimer");
 extendTimer.addEventListener("click", () => { 
   timer.start();

@@ -270,6 +270,9 @@ io.sockets.on("connection", (socket) => {
     for (var i in TunnelPos) {
       gameState.gridPositions.push(TunnelPos[i]);
     }
+    for (var i in TrapPos) {
+      gameState.gridPositions.push(TrapPos[i]);
+    }
 
     //Crafting message
     
