@@ -129,6 +129,11 @@ io.sockets.on("connection", (socket) => {
     socket.join("admin");
     console.log("Admin Login!");
     socket.emit("population", gameServer.userListLength());
+    let roomNames = []
+    for(var i in gameServer.ROOM_LIST){
+      roomNames.push(i);
+    }
+    socket.emit("RoomUpdate", roomNames);
   });
 
   socket.on("checkUsername", (data) => {
@@ -173,6 +178,11 @@ io.sockets.on("connection", (socket) => {
       }
     }
     socket.emit("checkRoomStatus", avail);
+    let roomNames = []
+    for(var i in gameServer.ROOM_LIST){
+      roomNames.push(i);
+    }
+    socket.to("admin").emit("RoomUpdate", roomNames);
   });
 
 
@@ -419,12 +429,128 @@ io.sockets.on("connection", (socket) => {
         }
       }
     }
+    let roomNames = []
+    for(var i in gameServer.ROOM_LIST){
+      roomNames.push(i);
+    }
+    socket.to("admin").emit("RoomUpdate", roomNames);
     delete gameServer.USER_LIST[socket.id];
     socket.to("admin").emit("population", gameServer.userListLength());
   });
 
-  socket.on("resetRoom", () => {
-    socket.emit("resetRoom2", "true");
+  socket.on("resetRoom", async (data) => {
+    console.log("Room " + data + " has started the game!");
+    io.to(data).emit("cleanGrid");
+    let gameState = {
+      gridPositions: [],
+    };
+
+    //Generate Grid
+    let k = 0;
+    for (let i = 1; i <= 5; i++) {
+      for (let j = 1; j <= 5; j++) {
+        gameState.gridPositions[k] = "x" + i + "y" + j;
+        k++;
+      }
+    }
+
+    //Random Obstacles
+    let ObstaclePos = [];
+    for (let i = 0; i < 5; i++) {
+      let indexRemove = Math.floor(
+        Math.random() * gameState.gridPositions.length
+      );
+      ObstaclePos.push(gameState.gridPositions[indexRemove]);
+      gameState.gridPositions.splice(indexRemove, 1);
+    }
+
+    //Random Tunnel Pos
+    let TunnelPos = [];
+    let indexRemove =
+      Math.floor(Math.random() * (gameState.gridPositions.length + 1)) %
+      gameState.gridPositions.length;
+    TunnelPos.push(gameState.gridPositions[indexRemove]);
+    gameState.gridPositions.splice(indexRemove, 1);
+
+    //Random Player Pos
+    let UserPos = [];
+    let length = 2;
+    for (let i = 0; i < length; i++) {
+      let indexRemove =
+        Math.floor(Math.random() * (gameState.gridPositions.length + 1)) %
+        gameState.gridPositions.length;
+      UserPos.push(gameState.gridPositions[indexRemove]);
+      gameState.gridPositions.splice(indexRemove, 1);
+    }
+    for (var i in UserPos) {
+      gameState.gridPositions.push(UserPos[i]);
+    }
+
+    let stuck = await checkPath(
+      UserPos[0],
+      UserPos[1],
+      gameState.gridPositions
+    );
+
+    while (stuck) {
+      UserPos = [];
+      let z = 0;
+      for (var i in gameServer.ROOM_LIST[data].users) {
+        z = z + 1;
+      }
+      for (let i = 0; i < length; i++) {
+        let indexRemove =
+          Math.floor(Math.random() * (gameState.gridPositions.length + 1)) %
+          gameState.gridPositions.length;
+        UserPos.push(gameState.gridPositions[indexRemove]);
+        gameState.gridPositions.splice(indexRemove, 1);
+      }
+      for (var i in UserPos) {
+        gameState.gridPositions.push(UserPos[i]);
+      }
+      stuck = await checkPath(UserPos[0], UserPos[1], gameState.gridPositions);
+    }
+    console.log(stuck);
+    for (var i in TunnelPos) {
+      gameState.gridPositions.push(TunnelPos[i]);
+    }
+
+    //Crafting message
+    
+    let userPosMsg = {};
+    gameState.users = [];
+    for (var i in gameServer.ROOM_LIST[data].users) {
+      gameState.users.push(gameServer.ROOM_LIST[data].users[i].name);
+    }
+    for (var i in gameState.users) {
+      userPosMsg[gameState.users[i]] = UserPos[i];
+    }
+
+    gameState.playerPos = userPosMsg;
+    gameState.obstaclePos = ObstaclePos;
+    gameState.tunnelPos = TunnelPos;
+    if (gameServer.ROOM_LIST[data].gameState != undefined) {
+      gameState.warderIndex = Math.round(Math.random());
+    } else {
+      gameState.warderIndex = Math.round(Math.random());
+    }
+
+    if (gameState.warderIndex == 0) {
+      gameState.prisonerIndex = 1;
+    } else {
+      gameState.prisonerIndex = 0;
+    }
+    gameState.playerIndex = gameState.warderIndex;
+    gameState.turn = gameState.users[gameState.warderIndex];
+    //
+    if (gameServer.ROOM_LIST[data].gameState != undefined) {
+      gameState.score = [0, 0];
+    } else {
+      gameState.score = [0, 0];
+    }
+    //
+    gameServer.ROOM_LIST[data].gameState = gameState;
+    io.to(data).emit("gameStart", gameServer.ROOM_LIST[data].gameState);
   }); 
 
 });

@@ -1,6 +1,16 @@
 // Socket
-let themeMusic = document.querySelector(".theme-music");
+
+
+function bg(){
+  const audio = document.querySelector(".theme-music");
+  audio.volume = 1;
+  audio.play();
+  console.log('Music')
+}
+
+bg();
 const socket = io();
+
 
 let rocket = gsap.timeline({ repeat: 0, ease: "power2.inOut" });
 rocket.fromTo(
@@ -197,8 +207,8 @@ class GameClient {
         welcomeTl.fromTo(
           "#rocket2",
           7,
-          { x: "-400%", y: "100%", display: "flex", rotate: 20 },
-          { x: "400%", y: "100%" }
+          { left: "-10%", bottom: "70%", display: "flex", rotate: 20 },
+          { left: "110%", bottom: "70%" }
         );
         welcomeTl.fromTo(
           ".gameInstructions",
