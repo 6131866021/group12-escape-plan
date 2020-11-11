@@ -400,14 +400,9 @@ io.sockets.on("connection", (socket) => {
     trapOver = true;
   }
 
-   if (!trapOver) {
+   if (trapOver) {
      io.to(roomName).emit(
        "gameStart",
-       gameServer.ROOM_LIST[roomName].gameState
-     );
-   } else {
-     io.to(roomName).emit(
-       "gameOver",
        gameServer.ROOM_LIST[roomName].gameState
      );
    }

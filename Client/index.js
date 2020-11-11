@@ -508,8 +508,11 @@ extendTimer.addEventListener("click", () => {
 // BreakObstacle
 
 let breakOb = document.querySelector(".breakObstacle");
-breakOb.addEventListener("click", () => { 
-  gameData.obstaclePos.pop();
+breakOb.addEventListener("click", () => {
+  let obstacleSprite = document.querySelector(
+      "." + gameData.obstaclePos[0]
+    );
+  obstacleSprite.innerHTML = "";
   breakOb.style.display = "none";
 });
 
