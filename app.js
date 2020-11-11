@@ -220,6 +220,14 @@ io.sockets.on("connection", (socket) => {
     TunnelPos.push(gameState.gridPositions[indexRemove]);
     gameState.gridPositions.splice(indexRemove, 1);
 
+    //Random Trap Pos
+    let TrapPos = [];
+    let indexRemove = 
+    Math.floor(Math.random() * (gameState.gridPositions.length + 1)) %
+    gameState.gridPositions.length;
+    TrapPos.push(gameState.gridPositions[indexRemove]);
+    gameState.gridPositions.splice(indexRemove, 1);
+
     //Random Player Pos
     let UserPos = [];
     let length = 2;
@@ -277,6 +285,8 @@ io.sockets.on("connection", (socket) => {
     gameState.playerPos = userPosMsg;
     gameState.obstaclePos = ObstaclePos;
     gameState.tunnelPos = TunnelPos;
+    gameState.trapPos = TrapPos;
+
     if (gameServer.ROOM_LIST[data].gameState != undefined) {
       gameState.warderIndex = gameServer.ROOM_LIST[data].gameState.warderIndex;
     } else {
@@ -529,6 +539,8 @@ io.sockets.on("connection", (socket) => {
     gameState.playerPos = userPosMsg;
     gameState.obstaclePos = ObstaclePos;
     gameState.tunnelPos = TunnelPos;
+    gameState.trapPos = TrapPos;
+
     if (gameServer.ROOM_LIST[data].gameState != undefined) {
       gameState.warderIndex = Math.round(Math.random());
     } else {

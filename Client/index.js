@@ -270,6 +270,11 @@ class GameClient {
         obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
       }
 
+      for (var i in gameData.trapPos) {
+        let obstacleSprite = document.querySelector("." + gameData.trapPos[i]);
+        obstacleSprite.innerHTML = '<img src="./img/right.png" />';
+      }
+
       Object.keys(gameData.playerPos).forEach(function (key) {
         if (key == gameClient.displayName) {
           gameClient.currentPos = gameData.playerPos[key];
