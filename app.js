@@ -379,9 +379,8 @@ io.sockets.on("connection", (socket) => {
         gameServer.ROOM_LIST[roomName].gameState
       );
     }
-  });
 
-    // Check Trap
+        // Check Trap
    let trapOver = false;
    if (
      gameServer.ROOM_LIST[roomName].gameState.playerPos[
@@ -412,7 +411,8 @@ io.sockets.on("connection", (socket) => {
        gameServer.ROOM_LIST[roomName].gameState
      );
    }
- });  
+  });
+
 
   // terminateRoom
 
@@ -600,8 +600,8 @@ io.sockets.on("connection", (socket) => {
     gameServer.ROOM_LIST[data].gameState = gameState;
     io.to(data).emit("gameStart", gameServer.ROOM_LIST[data].gameState);
   }); 
-
 });
+
 
 var port = process.env.PORT || 8080;
 
