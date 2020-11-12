@@ -366,6 +366,88 @@ class GameClient {
       let element = document.createElement("p");
       element.innerText = "Winner is " + gameData.users[gameData.winnerIndex];
       this.scoreList.appendChild(element);
+
+      for (var i in gameData.obstaclePos) {
+        let obstacleSprite = document.querySelector(
+          "." + gameData.obstaclePos[i]
+        );
+        obstacleSprite.innerHTML = obstacleSprite.innerHTML =
+          '<img src="./img/ufo.svg" />';
+      }
+
+      for (var i in gameData.tunnelPos) {
+        let obstacleSprite = document.querySelector(
+          "." + gameData.tunnelPos[i]
+        );
+        obstacleSprite.innerHTML = '<img src="./img/escape.svg" />';
+      }
+      Object.keys(gameData.playerPos).forEach(function (key) {
+        if (key == gameClient.displayName) {
+          gameClient.currentPos = gameData.playerPos[key];
+        } else {
+          let otherPlayerBlock = document.querySelector(
+            "." + gameData.playerPos[key]
+          );
+          let existingSprite = document.querySelector("#Pos" + key);
+          if (existingSprite != undefined) {
+            existingSprite.classList.remove("otherPlayerBlock");
+            existingSprite.innerHTML = "";
+            existingSprite.id = undefined;
+          }
+          let id = "Pos" + key;
+          otherPlayerBlock.classList.add("otherPlayerBlock");
+          otherPlayerBlock.id = id;
+
+          // color select
+          var photo = document.getElementById("photo").value;
+          console.log("Next game color: " + photo);
+          if (gameData.users[gameData.warderIndex] == key) {
+            if (photo == "blue") {
+              otherPlayerBlock.innerHTML = '<img src="./img/alien.svg" />';
+            } else if (photo == "white") {
+              otherPlayerBlock.innerHTML = '<img src="./img/alien2.svg" />';
+            } else {
+              otherPlayerBlock.innerHTML = '<img src="./img/alien3.svg" />';
+            }
+          } else {
+            if (photo == "blue") {
+              otherPlayerBlock.innerHTML = '<img src="./img/astro.svg" />';
+            } else if (photo == "white") {
+              otherPlayerBlock.innerHTML = '<img src="./img/astro2.svg" />';
+            } else {
+              otherPlayerBlock.innerHTML = '<img src="./img/astro3.svg" />';
+            }
+          }
+        }
+      });
+      gameClient.gameState = gameData;
+      gameClient.currentBlock = document.querySelector(
+        "." + gameClient.currentPos
+      );
+      gameClient.currentBlock.classList.add("currentBlock");
+
+      // color select
+      var photo = document.getElementById("photo").value;
+      if (gameData.users[gameData.warderIndex] == gameClient.displayName) {
+        if (photo == "white") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/alien.svg" />';
+        } else if (photo == "green") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/alien2.svg" />';
+        } else {
+          gameClient.currentBlock.innerHTML = '<img src="./img/alien3.svg" />';
+        }
+      } else {
+        if (photo == "white") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro.svg" />';
+        } else if (photo == "green") {
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro2.svg" />';
+        } else {
+          gameClient.currentBlock.innerHTML = '<img src="./img/astro3.svg" />';
+        }
+      }
+    });
+
+    socket.on("reGame", (gameData) => {
       for (var i in gameData.obstaclePos) {
         let obstacleSprite = document.querySelector(
           "." + gameData.obstaclePos[i]
