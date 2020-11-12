@@ -380,7 +380,7 @@ io.sockets.on("connection", (socket) => {
       );
     }
 
-        // Check Trap
+    // Check Trap
     let trapOver = false;
     if (
      gameServer.ROOM_LIST[roomName].gameState.playerPos[gameServer.ROOM_LIST[roomName].gameState.users[0]] ==
