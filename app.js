@@ -335,6 +335,31 @@ io.sockets.on("connection", (socket) => {
           gameServer.ROOM_LIST[roomName].gameState.users.length
       ];
 
+    // Check Trap
+    let trapOver = false;
+    if (
+     gameServer.ROOM_LIST[roomName].gameState.playerPos[gameServer.ROOM_LIST[roomName].gameState.users[0]] ==
+     gameServer.ROOM_LIST[roomName].gameState.trapPos
+    ) {
+     trapOver = true;
+    }
+
+    if (
+      gameServer.ROOM_LIST[roomName].gameState.playerPos[
+      gameServer.ROOM_LIST[roomName].gameState.users[1]
+      ] ==
+      gameServer.ROOM_LIST[roomName].gameState.trapPos
+    ) {
+      trapOver = true;
+    }
+
+    if (trapOver) {
+     io.to(roomName).emit(
+       "reGame",
+       gameServer.ROOM_LIST[roomName].gameState
+     );
+    }
+
     //check Win
     let gameOver = false;
     if (
@@ -380,30 +405,6 @@ io.sockets.on("connection", (socket) => {
       );
     }
 
-    // Check Trap
-    let trapOver = false;
-    if (
-     gameServer.ROOM_LIST[roomName].gameState.playerPos[gameServer.ROOM_LIST[roomName].gameState.users[0]] ==
-     gameServer.ROOM_LIST[roomName].gameState.trapPos
-    ) {
-     trapOver = true;
-    }
-
-    if (
-      gameServer.ROOM_LIST[roomName].gameState.playerPos[
-      gameServer.ROOM_LIST[roomName].gameState.users[1]
-      ] ==
-      gameServer.ROOM_LIST[roomName].gameState.trapPos
-    ) {
-      trapOver = true;
-    }
-
-    if (trapOver) {
-     io.to(roomName).emit(
-       "reGame",
-       gameServer.ROOM_LIST[roomName].gameState
-     );
-    }
   });
 
 
