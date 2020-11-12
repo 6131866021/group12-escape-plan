@@ -342,6 +342,7 @@ io.sockets.on("connection", (socket) => {
      gameServer.ROOM_LIST[roomName].gameState.trapPos
     ) {
      trapOver = true;
+     console.log("ReGame")
     }
 
     if (
@@ -351,13 +352,7 @@ io.sockets.on("connection", (socket) => {
       gameServer.ROOM_LIST[roomName].gameState.trapPos
     ) {
       trapOver = true;
-    }
-
-    if (trapOver) {
-     io.to(roomName).emit(
-       "reGame",
-       gameServer.ROOM_LIST[roomName].gameState
-     );
+      console.log("ReGame")
     }
 
     //check Win
@@ -394,10 +389,17 @@ io.sockets.on("connection", (socket) => {
     }
 
     if (!gameOver) {
-      io.to(roomName).emit(
+      if (trapOver) {
+        io.to(roomName).emit(
+          "reGame",
+          gameServer.ROOM_LIST[roomName].gameState
+        );
+      } else {
+        io.to(roomName).emit(
         "gameStart",
         gameServer.ROOM_LIST[roomName].gameState
-      );
+        );
+      }
     } else {
       io.to(roomName).emit(
         "gameOver",
