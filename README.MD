@@ -1,4 +1,4 @@
-Netcentric Architecure
+Netcentric Architecture
 
 Socket Programming
 
